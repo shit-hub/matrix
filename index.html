@@ -3,13 +3,23 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Matrix</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				overflow: hidden;
+			}
+		</style>
+        </head>
+
 	<body>
 		<canvas id="hacker" style="width:100%;height:100%;"></canvas>
 	</body>
-</html>
 
+</html>
 <script type="text/javascript">
 	window.onload = function() {
 		var hacker = document.getElementById("hacker");
@@ -26,7 +36,7 @@
 			ctx.font = '14px Asria';
 			ctx.fillStyle = '#00FF00';
 			y.map(function(y1,i){
-				var text = String.fromCharCode(65 + Math.random() * 32);
+				var text = String.fromCharCode(65 + Math.random() * 62);
 				var x = i * 16;  
 				var y1 = y[i];
 				ctx.fillText(text, x, y1);
