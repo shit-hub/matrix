@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Matrix</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+	<body>
+		<canvas id="hacker" style="width:100%;height:100%;"></canvas>
+	</body>
+</html>
+
+<script type="text/javascript">
+	window.onload = function() {
+		var hacker = document.getElementById("hacker");
+		var width = hacker.width = screen.width;
+		var height = hacker.height = screen.height;
+		var ctx = hacker.getContext('2d');
+		var num = Math.ceil(width / 16);
+		var y = Array(num).join(0).split('');
+		var draw = function() {
+			// Background
+			ctx.fillStyle = 'rgba(0,0,0,.05)';
+			ctx.fillRect(0, 0, width, height);
+			// Text
+			ctx.font = '14px Asria';
+			ctx.fillStyle = '#00FF00';
+			y.map(function(y1,i){
+				var text = String.fromCharCode(65 + Math.random() * 32);
+				var x = i * 16;  
+				var y1 = y[i];
+				ctx.fillText(text, x, y1);
+				y[i] = ( y1 > Math.random() * 10 * height ? 0 : parseInt(y[i]) + 16 );
+			})
+		}
+
+		setInterval(draw, 50);
+	}
+</script>
